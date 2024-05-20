@@ -1,0 +1,33 @@
+# [Environment] Core i7-13700K, Geforce RTX 3090Ti, cuda11.7, ubuntu 22.04, nvidia-driver-525-server
+# [Date] 1 August 2023
+###################################################### MANDATORY #######################################################
+# conda create --name DBF python=3.8 -y
+# conda install pytorch==2.0.1 torchvision==0.15.2 pytorch-cuda=11.7 -c pytorch -c nvidia
+# pip install -U openmim==0.3.9
+# mim install mmcv-full==1.7.1
+# (if trouble happens, mim install mmcv-full -> do not specify version...)
+# git clone -b 2.x https://github.com/open-mmlab/mmdetection
+# (mmdet==2.28.2)
+# cd mmdetection
+# pip install -v -e . # -v: verbose # -e: editable mode
+# cd ..
+# git clone https://github.com/open-mmlab/mmrotate
+# (mmrotate==0.3.4)
+# cd mmrotate
+# pip install -v -e .
+# cd ..
+# pip install tensorboard
+# pip install protobuf==4.25.3
+# pip install shapely
+###################################################### OPTIONAL ########################################################
+# pip install jupyter notebook
+
+# if TypeError: FormatCode() got an unexpected keyword argument 'verify',
+# ref: https://github.com/open-mmlab/mmdetection/issues/10962
+# sol: pip install yapf==0.40.1
+
+# if TypeError: MessageToJson() got an unexpected keyword argument 'including_default_value_fields'
+# while running Tensorboard
+# sol: pip install protobuf==4.25.3
+
+# pip install seaborn
