@@ -1,11 +1,15 @@
 from .my_cfg import *
 from .my_dataset import *
 from .my_trainer import *
+from .my_transform import *
 
 
 def init_workdir_and_cfg_dump(cfg, args):
     os.makedirs(cfg.work_dir, exist_ok=True)
-    cfg.dump(f'{cfg.work_dir}/cfg.py')
+    try:
+        cfg.dump(f'{cfg.work_dir}/cfg.py')
+    except:
+        print('Failed to dump cfg.py')
     if args.dataset_class:
         with open(f'{cfg.work_dir}/cfg.py', 'a') as f_out:
             with open(args.dataset_class) as f_in:
