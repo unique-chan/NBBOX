@@ -10,7 +10,7 @@ class Parser:
         self.add_common_arguments()
         if mode == 'train':
             self.add_train_arguments()
-            self.add_DBF_arguments()        # for dynamic backbone freezing
+            self.add_noisy_bbox_arguments()
 
     def add_common_arguments(self):
         self.parser.add_argument('--model-config',
@@ -45,11 +45,12 @@ class Parser:
                                  help='use init weights')
         self.parser.add_argument('--tag', help='experiment tag')
 
-    def add_DBF_arguments(self):
-        self.parser.add_argument('--dbf', help='file for dynamic backbone freezing')
-        self.parser.add_argument('--dbf-options',
-                                 help='scheduling options for dynamic backbone freezing '
-                                      '▶ e.g. %s' % '{"step_epoch": 10}')
+    def add_noisy_bbox_arguments(self):
+        self.parser.add_argument('--scale_min', default=1.0, type=int, help='scale min')
+        self.parser.add_argument('--scale_max', default=1.0, type=int, help='scale max')
+        self.parser.add_argument('--isotropically_rescaled', action='store_true')
+        self.parser.add_argument('--angle_min', default=0, type=int, help='angle min')
+        self.parser.add_argument('--angle_max', default=0, type=int, help='angle max')
 
     def parse_args(self):
         parsed_args = self.parser.parse_args()

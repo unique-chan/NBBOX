@@ -31,9 +31,7 @@ def train_detector_for_hbb(model,
     # prepare data loaders
     dataset = dataset if isinstance(dataset, (list, tuple)) else [dataset]
 
-    # runner_type = 'EpochBasedRunner' if 'runner' not in cfg else cfg.runner['type']
-    runner_type = 'EpochBasedRunnerForDBF'  # Added by Yechan Kim
-    cfg.runner['type'] = runner_type        # Added by Yechan Kim
+    runner_type = 'EpochBasedRunner' if 'runner' not in cfg else cfg.runner['type']
 
     train_dataloader_default_args = dict(
         samples_per_gpu=2 if 'samples_per_gpu' not in dir(cfg) else cfg.samples_per_gpu,

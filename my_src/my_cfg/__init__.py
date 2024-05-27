@@ -1,4 +1,7 @@
 import importlib
+import random
+import os
+import time
 from datetime import datetime
 
 from mmcv import Config
@@ -14,7 +17,32 @@ def get_config(cfg_file, cfg, args):
 
 
 def get_all_configs(args, mode='train', verbose=True):
-    cfg = Config.fromfile(args.model_config)
+    # read original model config
+    f = open(args.model_config, 'r')
+    code = f.readlines()
+    for i in range(len(code)):
+        if "dict(type='NoisyBBOX'" in code[i]:
+            print(f'* Original: {code[i]}', end='')
+            code[i] = code[i].replace("'NoisyBBOX'",
+                                      f"'NoisyBBOX', scale_range=({args.scale_min}, {args.scale_max}), "
+                                      f"isotropically_rescaled={args.isotropically_rescaled}, "
+                                      f"angle_range=({args.angle_min}, {args.angle_max}) ")
+            print(f'* Modified: {code[i]}', end='')
+    f.close()
+
+    # update model config for noisy bbox
+    tmp_config = f'my_src/my_cfg/{datetime.now().strftime("%Y%m%d_%H%M%S")}-model_config.py'
+    f = open(tmp_config, 'w')
+    f.writelines(code)
+    f.close()
+
+    # load updated model config file to mmdetection/mmrotate
+    cfg = Config.fromfile(tmp_config)
+
+    # remove updated model config file
+    time.sleep(0.5)
+    os.remove(tmp_config)
+
     cfg = get_config(args.data_config, cfg, args)
 
     cfg.device = args.device
@@ -36,9 +64,6 @@ def get_work_dir(args):
          args.train_config.split('/')[-1].replace('/', '.').replace('.py', ''),
          args.data_config.split('/')[-1].replace('/', '.').replace('.py', ''),
          datetime.now().strftime("%Y%m%d_%H%M%S")]
-    if args.dbf:
-        _.insert(-1, f"{args.dbf.split('/')[-1].replace('/', '.').replace('.py', '')}-{args.dbf_options}")
-        _[-2] = _[-2].replace('"', '').replace("'", '').replace(':', '')
     if args.tag:
         _.insert(-1, args.tag)
     return f"{args.work_dir}/{'-'.join(_)}"
