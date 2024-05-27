@@ -47,7 +47,8 @@ python train.py --model-config "my_src/my_cfg/rotated_faster_rcnn_r50_fpn_1x_dio
                 --train-config "my_src/my_cfg/for_dior/cfg_for_train_DIOR_obb.py" \
                 --dataset-class "my_src/my_dataset/dior_obb.py" --batch-size 8   \
                 --data-root "DIOR" --epochs 1 --work-dir "work_dirs/dior_faster_r50" --gpu-id 0 --obb --tag "noisy-bbox" --init_weights \
-                --scale_min 0.7 --scale_max 1.0 --isotropically_rescaled --angle_min -2 --angle_max 2 // ⭐
+                --scale_min 0.7 --scale_max 1.0 --isotropically_rescaled \
+                --angle_min -2 --angle_max 2 // ⭐
 ~~~
 - If you hope to train detectors with your own MMDetection/Rotate-based codes, please follow steps below:
   - Copy and paste `my_transform/noisy_bbox.py` into your code. Ensure that our transform to be registered in MMDetection/Rotate's PIPELINES.
@@ -55,7 +56,8 @@ python train.py --model-config "my_src/my_cfg/rotated_faster_rcnn_r50_fpn_1x_dio
   ~~~python3
   train_pipeline = [
     ...
-    dict(type='NoisyBBOX', scale_range=(0.7, 1.0), isotropically_rescaled=True, angle_range=(-2, 2)),
+    dict(type='NoisyBBOX', scale_range=(0.7, 1.0), 
+         isotropically_rescaled=True, angle_range=(-2, 2)),
     ...
   ]
   ~~~
