@@ -60,11 +60,22 @@ def get_all_configs(args, mode='train', verbose=True):
 
 
 def get_work_dir(args):
+    n_bbox_params = []
+    if args.scale_min != 1.0:
+        n_bbox_params.append(f'scale_min={args.scale_min}')
+    if args.scale_max != 1.0:
+        n_bbox_params.append(f'scale_max={args.scale_max}')
+    if args.scale_min != 1.0 and args.scale_max != 1.0 and args.angle_min != 0 and args.angle_max != 0:
+        n_bbox_params.append(f'isotropically_rescaled={args.isotropically_rescaled}')
+    if args.angle_min != 0:
+        n_bbox_params.append(f'angle_min={args.angle_min}')
+    if args.angle_max != 0:
+        n_bbox_params.append(f'angle_max={args.angle_max}')
+
     _ = ['exp',
          args.train_config.split('/')[-1].replace('/', '.').replace('.py', ''),
          args.data_config.split('/')[-1].replace('/', '.').replace('.py', ''),
-         f's_min={args.scale_min}-s_max={args.scale_max}-ir={args.isotropically_rescaled}-'
-         f'a_min={args.angle_min}-a_max={args.angle_max}',
+         '-'.join(n_bbox_params),
          datetime.now().strftime("%Y%m%d_%H%M%S")]
     if args.tag:
         _.insert(-1, args.tag)
