@@ -52,7 +52,7 @@ python train.py --model-config "my_src/my_cfg/rotated_faster_rcnn_r50_fpn_1x_dio
 ~~~
 - If you hope to train detectors with your own MMDetection/Rotate-based codes, please follow steps below:
   - Copy and paste `my_transform/noisy_bbox.py` into your code. Ensure that our transform to be registered in MMDetection/Rotate's PIPELINES.
-  - Also, add our transform to *train_pipeline* in your model configuration file as follows:
+  - Also, add our transform with parameters to *train_pipeline* in your model configuration file as follows:
   ~~~python3
   train_pipeline = [
     ...
