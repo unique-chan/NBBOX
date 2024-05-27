@@ -23,7 +23,6 @@ if __name__ == '__main__':
     model.CLASSES = datasets[0].CLASSES
 
     init_workdir_and_cfg_dump(cfg, args)
-    init_for_dynamic_backbone_freezing(args)
     _train_detector = train_detector_for_hbb if args.hbb else train_detector_for_obb
     runner = _train_detector(model, datasets, cfg, distributed=False,
                              validate=(not args.no_validate), run_time_measure=True)
