@@ -63,6 +63,8 @@ def get_work_dir(args):
     _ = ['exp',
          args.train_config.split('/')[-1].replace('/', '.').replace('.py', ''),
          args.data_config.split('/')[-1].replace('/', '.').replace('.py', ''),
+         f's_min={args.scale_min}-s_max={args.scale_max}-ir={args.isotropically_rescaled}-'
+         f'a_min={args.angle_min}-a_max={args.angle_max}',
          datetime.now().strftime("%Y%m%d_%H%M%S")]
     if args.tag:
         _.insert(-1, args.tag)
