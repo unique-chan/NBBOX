@@ -31,7 +31,7 @@ def get_all_configs(args, mode='train', verbose=True):
     f.close()
 
     # update model config for noisy bbox
-    tmp_config = f'my_src/my_cfg/{datetime.now().strftime("%Y%m%d_%H%M%S")}-model_config.py'
+    tmp_config = f'{os.path.dirname(args.model_config)}/{datetime.now().strftime("%Y%m%d_%H%M%S")}-model_config.py'
     f = open(tmp_config, 'w')
     f.writelines(code)
     f.close()
