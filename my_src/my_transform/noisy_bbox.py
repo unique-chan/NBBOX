@@ -54,4 +54,6 @@ class NoisyBBOX:
                 if 'polygons' in results['img_info']['ann']:
                     results['img_info']['ann']['polygons'][i] = translated_points.flatten()
 
+        results['gt_bboxes'] = results['ann_info']['bboxes'].copy()
+
         return results
