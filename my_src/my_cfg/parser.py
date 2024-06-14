@@ -54,8 +54,8 @@ class Parser:
         self.parser.add_argument('--angle_min', default=0, type=float, help='angle min')
         self.parser.add_argument('--angle_max', default=0, type=float, help='angle max')
         # re-translation factors
-        self.parser.add_argument('--translation_min', default=0, type=float, help='translation min')
-        self.parser.add_argument('--translation_max', default=0, type=float, help='translation max')
+        self.parser.add_argument('--translate_min', default=0, type=float, help='translate min')
+        self.parser.add_argument('--translate_max', default=0, type=float, help='translate max')
         self.parser.add_argument('--isotropically_translated', action='store_true')
 
     def parse_args(self):

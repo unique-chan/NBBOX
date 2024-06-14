@@ -51,7 +51,7 @@ train_pipeline = [
                   --data-root "DIOR" --epochs 1 --work-dir "work_dirs/dior_faster_r50" --gpu-id 0 --obb --tag "noisy-bbox" --init_weights \
                   --scale_min 0.7 --scale_max 1.0 --isotropically_rescaled \
                   --angle_min -2 --angle_max 2 \
-                  --translate_min -1 --translated_max 1 --isotropically_translated // ⭐
+                  --translate_min -1 --translate_max 1 --isotropically_translated // ⭐
   ~~~
 - If you hope to train detectors with your own MMDetection/Rotate-based codes, please follow steps below:
   - Copy and paste `my_transform/noisy_bbox.py` into your code. Ensure that our transform to be registered in MMDetection/Rotate's PIPELINES.
