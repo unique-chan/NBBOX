@@ -37,8 +37,10 @@ train_pipeline = [
 ### Training via our strategy:
 - Our `NoisyBBOX` has the following arguments to control:
   * `scale_range (min, max)` (dtype: float): Scale each bounding box by a random number between *min* and *max*, during training. Each box is affected by a different random number.
-  * `isotropically_rescaled` (dtype: boolean): If this variable is `True`, each box is rescaled while preserving the aspect-ratio. Otherwise, not.
+    * `isotropically_rescaled` (dtype: boolean): If this variable is `True`, each box is rescaled while preserving the aspect-ratio. Otherwise, not.
   * `angle_range (min, max)` (dtype: int): Rotate each bounding box by a random number between *min* and *max*, during training. Each box is affected by a different random number.
+  * `translate_range (min, max)` (dtype: int): Translate each bounding box by a random number between *min* and *max*, during training. Each box is affected by a different random number.
+    * `isotropically_translated` (dtype: boolean): If this variable is `True`, each box is translated while preserving the aspect-ratio. Otherwise, not.
 - When training with this Git repo, you can easily control the arguments as follows:
   * Example: scale_range: (0.7, 1.0), isotropically_rescaled: True, angle_range: (-2, 2)
   ~~~
