@@ -27,8 +27,8 @@
 train_pipeline = [
     dict(type='LoadImageFromFile'),
     dict(type='LoadAnnotations', with_bbox=True),
+    dict(type='NoisyBBOX'), # Our transformation (⭐) should be placed directly after 'LoadAnnotations'
     ...
-    dict(type='NoisyBBOX'), # OUR TRANSFORMATION (⭐)
     dict(type='DefaultFormatBundle'),
     dict(type='Collect', keys=['img', 'gt_bboxes', 'gt_labels'])
 ]
