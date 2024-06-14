@@ -46,11 +46,17 @@ class Parser:
         self.parser.add_argument('--tag', help='experiment tag')
 
     def add_noisy_bbox_arguments(self):
+        # re-scaling factors
         self.parser.add_argument('--scale_min', default=1.0, type=float, help='scale min')
         self.parser.add_argument('--scale_max', default=1.0, type=float, help='scale max')
         self.parser.add_argument('--isotropically_rescaled', action='store_true')
+        # re-rotation factors
         self.parser.add_argument('--angle_min', default=0, type=float, help='angle min')
         self.parser.add_argument('--angle_max', default=0, type=float, help='angle max')
+        # re-translation factors
+        self.parser.add_argument('--translation_min', default=0, type=float, help='translation min')
+        self.parser.add_argument('--translation_max', default=0, type=float, help='translation max')
+        self.parser.add_argument('--isotropically_translated', action='store_true')
 
     def parse_args(self):
         parsed_args = self.parser.parse_args()

@@ -4,10 +4,13 @@ import numpy as np
 
 @PIPELINES.register_module()
 class NoisyBBOX:
-    def __init__(self, scale_range=(0.7, 1.0), isotropically_rescaled=False, angle_range=(-2, 2)):
+    def __init__(self, scale_range=(0.7, 1.0), isotropically_rescaled=False,
+                 angle_range=(-2, 2), translate_range=(-2, 2), isotropically_translated=False):
         self.scale_range = scale_range
         self.isotropically_rescaled = isotropically_rescaled
         self.angle_range = angle_range
+        self.translate_range = translate_range
+        self.isotropically_translated = isotropically_translated
 
     def __call__(self, results):
         # Extract
@@ -23,10 +26,23 @@ class NoisyBBOX:
             bboxes[:, 2] *= scales[:, 0]    # width
             bboxes[:, 3] *= scales[:, 1]    # height
 
-        # Re-rotate angle
+        # Re-rotate BBOX
         if self.angle_range[0] < self.angle_range[1]:
             angles = np.random.randint(self.angle_range[0], self.angle_range[1], size=(bboxes.shape[0]))
             bboxes[:, 4] += angles
+
+        # Re-translate BBOX
+        if self.translate_range[0] < self.translate_range[1]:
+            if self.isotropically_translated:
+                translations = np.random.randint(self.translate_range[0], self.translate_range[1],
+                                                 size=(bboxes.shape[0]))
+                bboxes[:, 0] += translations
+                bboxes[:, 1] += translations
+            else:
+                translations = np.random.randint(self.translate_range[0], self.translate_range[1],
+                                                 size=(bboxes.shape[0], 2))
+                bboxes[:, 0] += translations[:, 0]
+                bboxes[:, 1] += translations[:, 1]
 
         # Update
         results['ann_info']['bboxes'] = bboxes
