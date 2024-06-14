@@ -65,6 +65,7 @@ img_norm_cfg = dict(
 train_pipeline = [
     dict(type='LoadImageFromFile'),
     dict(type='LoadAnnotations', with_bbox=True),
+    dict(type='NoisyBBOX'),  # OUR TRANSFORMATION (⭐)
     dict(type='RResize', img_scale=(800, 800)),
     dict(type='RRandomFlip',
          flip_ratio=[0.25, 0.25, 0.25],
@@ -72,7 +73,6 @@ train_pipeline = [
          version=angle_version),
     dict(type='Normalize', **img_norm_cfg),
     dict(type='Pad', size_divisor=32),
-    dict(type='NoisyBBOX'), # OUR TRANSFORMATION (⭐)
     dict(type='DefaultFormatBundle'),
     dict(type='Collect', keys=['img', 'gt_bboxes', 'gt_labels'])
 ]
