@@ -60,7 +60,7 @@ train_pipeline = [
   train_pipeline = [
     ...
     dict(type='NoisyBBOX', scale_range=(0.7, 1.0), 
-         isotropically_rescaled=True, angle_range=(-2, 2)),
+         isotropically_rescaled=True, angle_range=(-2, 2), ...),
     ...
   ]
   ~~~
