@@ -69,8 +69,13 @@ def get_work_dir(args):
         n_bbox_params.append(f'isotropically_rescaled={args.isotropically_rescaled}')
 
     if args.angle_min != 0 or args.angle_max != 0:
-        n_bbox_params.append(f'angle_max={args.angle_max}')
         n_bbox_params.append(f'angle_min={args.angle_min}')
+        n_bbox_params.append(f'angle_max={args.angle_max}')
+
+    if args.translate_min != 1.0 or args.translate_max != 1.0:
+        n_bbox_params.append(f'translate_min={args.translate_min}')
+        n_bbox_params.append(f'translate_max={args.translate_max}')
+        n_bbox_params.append(f'isotropically_translated={args.isotropically_translated}')
 
     _ = ['exp',
          args.train_config.split('/')[-1].replace('/', '.').replace('.py', ''),
