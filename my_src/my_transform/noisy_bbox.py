@@ -27,9 +27,8 @@ class NoisyBBOX:
             bboxes[:, 3] *= scales[:, 1]    # height
 
         # Re-rotate BBOX
-        if self.angle_range[0] < self.angle_range[1]:
-            angles = np.random.randint(self.angle_range[0], self.angle_range[1], size=(bboxes.shape[0]))
-            bboxes[:, 4] += angles
+        angles = np.random.uniform(self.angle_range[0], self.angle_range[1], size=(bboxes.shape[0]))
+        bboxes[:, 4] += angles
 
         # Re-translate BBOX
         if self.translate_range[0] < self.translate_range[1]:
