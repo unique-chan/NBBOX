@@ -20,6 +20,7 @@ def get_all_configs(args, mode='train', verbose=True):
     # read original model config
     f = open(args.model_config, 'r')
     code = f.readlines()
+    warning_flag = True
     for i in range(len(code)):
         if "dict(type='NoisyBBOX'" in code[i]:
             print(f'* Original: {code[i]}', end='')
@@ -30,7 +31,11 @@ def get_all_configs(args, mode='train', verbose=True):
                                       f"translate_range=({args.translate_min}, {args.translate_max}), "
                                       f"isotropically_translated={args.isotropically_translated}")
             print(f'* Modified: {code[i]}', end='')
+            warning_flag = False
     f.close()
+
+    if warning_flag:
+        print('* No NoisyBBOX is found in the given config files!!!')
 
     # update model config for noisy bbox
     tmp_config = f'{os.path.dirname(args.model_config)}/{datetime.now().strftime("%Y%m%d_%H%M%S")}-model_config.py'
