@@ -29,7 +29,8 @@ def get_all_configs(args, mode='train', verbose=True):
                                       f"isotropically_rescaled={args.isotropically_rescaled}, "
                                       f"angle_range=({args.angle_min}, {args.angle_max}), "
                                       f"translate_range=({args.translate_min}, {args.translate_max}), "
-                                      f"isotropically_translated={args.isotropically_translated}")
+                                      f"isotropically_translated={args.isotropically_translated}, "
+                                      f"threshold={args.threshold}")
             print(f'* Modified: {code[i]}', end='')
             warning_flag = False
     f.close()

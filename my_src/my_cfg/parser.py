@@ -57,6 +57,9 @@ class Parser:
         self.parser.add_argument('--translate_min', default=0, type=float, help='translate min')
         self.parser.add_argument('--translate_max', default=0, type=float, help='translate max')
         self.parser.add_argument('--isotropically_translated', action='store_true')
+        self.parser.add_argument('--threshold', default=0, type=float,
+                                 help='bbox which width (or height) is lower than threshold '
+                                      '-> no bbox transform applied!')
 
     def parse_args(self):
         parsed_args = self.parser.parse_args()
