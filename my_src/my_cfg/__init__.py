@@ -83,6 +83,9 @@ def get_work_dir(args):
         n_bbox_params.append(f'translate_max={args.translate_max}')
         n_bbox_params.append(f'isotropically_translated={args.isotropically_translated}')
 
+    if args.threshold > 0:
+        n_bbox_params.append(f'threshold={args.threshold}')
+
     _ = ['exp',
          args.train_config.split('/')[-1].replace('/', '.').replace('.py', ''),
          args.data_config.split('/')[-1].replace('/', '.').replace('.py', ''),
