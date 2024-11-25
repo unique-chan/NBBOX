@@ -14,7 +14,7 @@ pretrained = 'https://github.com/SwinTransformer/storage/releases/download/v1.0.
 angle_version = 'le90'
 
 model = dict(
-    type='RotatedFCOS',
+    type='RotatedFasterRCNN',
     backbone=dict(
         # _delete_=True,
         type='SwinTransformer',
