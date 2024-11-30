@@ -1,4 +1,6 @@
 def get_config(cfg, args):
+    cfg.data.samples_per_gpu = 2 if not args.batch_size else args.batch_size
+
     cfg.optimizer.lr = 0.001
     cfg.lr_config = dict(
         policy='step',

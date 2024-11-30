@@ -1,5 +1,5 @@
 def get_config(cfg, args):
-    cfg.samples_per_gpu = 2 if not args.batch_size else args.batch_size
+    cfg.data.samples_per_gpu = 2 if not args.batch_size else args.batch_size
     # cfg.optimizer = dict(type='SGD', lr=0.005, momentum=0.9, weight_decay=0.0001)
     # cfg.optimizer_config = dict(grad_clip=dict(max_norm=35, norm_type=2))
     # cfg.lr_config = dict(

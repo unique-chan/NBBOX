@@ -35,9 +35,12 @@ model = dict(
         init_cfg=dict(type='Pretrained', checkpoint=pretrained)),
     neck=dict(
         type='FPN',
-        in_channels=[256, 512, 1024, 2048],
+        in_channels=[96, 192, 384, 768],
         out_channels=256,
-        num_outs=5),
+        start_level=1,
+        add_extra_convs='on_output',  # use P5
+        num_outs=5,
+        relu_before_extra_convs=True),
     rpn_head=dict(
         type='RotatedRPNHead',
         in_channels=256,
@@ -169,6 +172,17 @@ test_pipeline = [
 data = dict(
     train=dict(pipeline=train_pipeline, version=angle_version),
     val=dict(pipeline=test_pipeline, version=angle_version),
-    test=dict(pipeline=test_pipeline, version=angle_version))
+    test=dict(pipeline=test_pipeline, version=angle_version),
+)
 
-optimizer = dict(lr=0.005)
+optimizer = dict(type='SGD', lr=0.001, momentum=0.9, weight_decay=0.001)
+
+# optimizer_config = dict(grad_clip=dict(max_norm=35, norm_type=2))
+lr_config = dict(
+    policy='step',
+    warmup='linear',
+    warmup_iters=500,
+    warmup_ratio=0.3333333333333333,
+    step=[8, 11])
+
+
