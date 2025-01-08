@@ -89,7 +89,7 @@ If you use this code for your research, please cite the following paper:
 
 - For Word (MLA Style):
   ~~~ME
-  Kim, Yechan, SooYeon Kim, and Moongu Jeon. "NBBOX: Noisy Bounding Box Improves Remote Sensing Object Detection." IEEE Geoscience and Remote Sensing Letters (2025).
+  Yechan Kim, SooYeon Kim, and Moongu Jeon. "NBBOX: Noisy Bounding Box Improves Remote Sensing Object Detection." IEEE Geoscience and Remote Sensing Letters (2025).
   ~~~
 
 ### Contribution:
