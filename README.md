@@ -11,8 +11,8 @@
 </p>
 
 <p align="center">
-  <b><a href="https://github.com/unique-chan">Yechan Kim</a></b>
-  <b><a href="https://github.com/bluesooyeon">SooYeon Kim</a></b>
+  <b><a href="https://github.com/unique-chan">Yechan Kim</a></b>, 
+  <b><a href="https://github.com/bluesooyeon">SooYeon Kim</a></b>, and 
   <b><a href="https://scholar.google.com/citations?user=zfngGSkAAAAJ&hl=ko">Moongu Jeon</a></b>
 </p>
 
