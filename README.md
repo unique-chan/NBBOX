@@ -24,6 +24,9 @@
 
 ### Overview:
 - With our noisy bounding box transformation, you can boost remote sensing object detection.
+<p align="center">
+    <img alt="Welcome" src=".sample.png" />
+</p>
 
 ### Preliminaries:
 - Install all necessary packages listed in the `requirements.txt`. 
