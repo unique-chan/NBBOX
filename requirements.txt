@@ -1,4 +1,4 @@
-# [Environment] Core i7-13700K, Geforce RTX 3090Ti, cuda11.7, ubuntu 22.04, nvidia-driver-525-server
+# [Environment] Geforce RTX 3090, cuda11.7, ubuntu 22.04, nvidia-driver-525-server
 # [Date] 1 August 2023
 ###################################################### MANDATORY #######################################################
 # conda create --name DBF python=3.8 -y
