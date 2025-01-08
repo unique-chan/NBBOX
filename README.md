@@ -12,10 +12,15 @@
 
 <p align="center">
   <b><a href="https://github.com/unique-chan">Yechan Kim</a></b>
+  <b><a href="https://github.com/bluesooyeon">SooYeon Kim</a></b>
+  <b><a href="https://scholar.google.com/citations?user=zfngGSkAAAAJ&hl=ko">Moongu Jeon</a></b>
 </p>
 
 ### This repo includes:
 - Official implementation of our proposed approach
+
+### Announcement:
+- Jan. 2025: Our paper is accepted to ***IEEE Geoscience and Remote Sensing Letters*** 🎉
 
 ### Overview:
 - With our noisy bounding box transformation, you can boost remote sensing object detection.
@@ -66,6 +71,23 @@ train_pipeline = [
   ]
   ~~~
 
+### Citation:
+If you use this code for your research, please cite the following paper:
+- For Latex:
+  ~~~ME
+  @article{kim2025nbbox,
+    title={NBBOX: Noisy Bounding Box Improves Remote Sensing Object Detection},
+    author={Kim, Yechan and Kim, SooYeon and Jeon, Moongu},
+    journal={IEEE Geoscience and Remote Sensing Letters},
+    year={2025},
+    publisher={IEEE}
+  }
+  ~~~
 
-### Announcement:
-- Code under construction
+- For Word (MLA Style):
+  ~~~ME
+  Kim, Yechan, SooYeon Kim, and Moongu Jeon. "NBBOX: Noisy Bounding Box Improves Remote Sensing Object Detection." IEEE Geoscience and Remote Sensing Letters (2025).
+  ~~~
+
+### Contribution:
+If you find any bugs or have opinions for further improvements, please feel free to create a pull request or contact me (yechankim@gm.gist.ac.kr). All contributions are welcome.
