@@ -20,7 +20,7 @@
 - Official implementation of our proposed approach
 
 ### Announcement:
-- Jan. 2025: Our paper is accepted to ***IEEE Geoscience and Remote Sensing Letters*** 🎉
+- Jan. 2025: Our paper is accepted to ***IEEE Geoscience and Remote Sensing Letters!*** 🎉
 
 ### Overview:
 - With our noisy bounding box transformation, you can boost remote sensing object detection.
