@@ -11,9 +11,9 @@
 </p>
 
 <p align="center">
-  <b><a href="https://github.com/unique-chan">Yechan Kim</a></b>, 
-  <b><a href="https://github.com/bluesooyeon">SooYeon Kim</a></b>, and 
-  <b><a href="https://scholar.google.com/citations?user=zfngGSkAAAAJ&hl=ko">Moongu Jeon</a></b>
+  <b>Yechan Kim</b>, 
+  <b>SooYeon Kim</b>, and 
+  <b>Moongu Jeon</b>
 </p>
 
 ### This repo includes:
@@ -21,6 +21,7 @@
 
 ### Announcement:
 - Jan. 2025: Our paper is accepted to ***IEEE Geoscience and Remote Sensing Letters!*** 🎉
+- Jan. 2025: We have released the official code of our proposed approach!
 
 ### Overview:
 - With our noisy bounding box transformation, you can boost remote sensing object detection.
