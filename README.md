@@ -1,4 +1,4 @@
-<h1 align="center" style="font-weight: 500; line-height: 1.4;">
+<h1 align="center">
   NBBOX: Noisy Bounding Box Improves Remote Sensing Object Detection
 </h1>
 
@@ -82,6 +82,7 @@ If you use this code for your research, please cite the following paper:
     title={NBBOX: Noisy Bounding Box Improves Remote Sensing Object Detection},
     author={Kim, Yechan and Kim, SooYeon and Jeon, Moongu},
     journal={IEEE Geoscience and Remote Sensing Letters},
+    volume={22},
     year={2025},
     publisher={IEEE}
   }
@@ -89,7 +90,7 @@ If you use this code for your research, please cite the following paper:
 
 - For Word (MLA Style):
   ~~~ME
-  Yechan Kim, SooYeon Kim, and Moongu Jeon. "NBBOX: Noisy Bounding Box Improves Remote Sensing Object Detection." IEEE Geoscience and Remote Sensing Letters (2025).
+  Yechan Kim, SooYeon Kim, and Moongu Jeon. "NBBOX: Noisy Bounding Box Improves Remote Sensing Object Detection." IEEE Geoscience and Remote Sensing Letters 22 (2025).
   ~~~
 
 ### Contribution:
