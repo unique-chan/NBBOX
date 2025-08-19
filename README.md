@@ -21,8 +21,9 @@
 
 ### Announcement:
 - Feb. 2025: **Erratum**: In our experiments, we used **Swin-S** instead of Swin-T; however, there was a typo in the manuscript where we mistakenly wrote Swin-T. We hope you understand. 🙏
-- Jan. 2025: Our paper is accepted to [***IEEE Geoscience and Remote Sensing Letters!***](https://ieeexplore.ieee.org/document/10835194) 🎉
+- Jan. 2025: Our paper is accepted to [***IEEE Geoscience and Remote Sensing Letters***](https://ieeexplore.ieee.org/document/10835194)! 🎉
 - Dec. 2024: We have released the official code of our proposed approach!
+- Sep. 2024: Our preprint is now available at https://arxiv.org/abs/2409.09424.
 
 ### Overview:
 - With our noisy bounding box transformation, you can boost remote sensing object detection.
